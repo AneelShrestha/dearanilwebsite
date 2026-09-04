@@ -1,1 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Dear Anil — Creative Designer & Digital Creator</title>
+  <meta name="description" content="Dear Anil — Creative designer, digital creator and visual storyteller from Nepal.">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --surface-2: #171717;
+      --text: #f5f5f5;
+      --muted: #9a9a9a;
+      --line: rgba(255,255,255,.10);
+      --accent: #ffffff;
+      --max: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      border-bottom: 1px solid transparent;
+      transition: .3s ease;
+    }
+
+    header.scrolled {
+      background: rgba(8,8,8,.78);
+      backdrop-filter: blur(18px);
+      border-color: var(--line);
+    }
+
+    .nav {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -.8px;
+    }
+
+    .brand span {
+      color: #666;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      list-style: none;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      padding: 11px 19px;
+      border: 1px solid #444;
+      border-radius: 100px;
+      font-size: 13px;
+      transition: .25s;
+    }
+
+    .nav-cta:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    .menu {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 100px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.045);
+      filter: blur(120px);
+      top: 5%;
+      right: -250px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.025);
+      filter: blur(100px);
+      left: -250px;
+      bottom: -150px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1000px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: #777;
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 10vw, 132px);
+      line-height: .86;
+      letter-spacing: -8px;
+      font-weight: 900;
+      max-width: 1000px;
+    }
+
+    .hero h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px #777;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      color: #999;
+      font-size: 18px;
+      margin-top: 38px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 24px;
+      border-radius: 100px;
+      font-size: 13px;
+      transition: .3s ease;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,255,255,.12);
+    }
+
+    .btn-secondary {
+      border: 1px solid #333;
+      color: #ddd;
+    }
+
+    .btn-secondary:hover {
+      border-color: #777;
+      transform: translateY(-3px);
+    }
+
+    .scroll-note {
+      position: absolute;
+      bottom: 30px;
+      right: 0;
+      color: #555;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 130px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 55px;
+    }
+
+    .section-number {
+      color: #555;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(42px, 6vw, 78px);
+      letter-spacing: -4px;
+      line-height: .95;
+      font-weight: 850;
+    }
+
+    .section-intro {
+      max-width: 400px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 20px;
+      line-height: 1.7;
+      color: #b1b1b1;
+    }
+
+    .about-copy p + p {
+      margin-top: 24px;
+    }
+
+    .about-copy strong {
+      color: #fff;
+    }
+
+    .about-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .detail {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(145deg,#141414,#0c0c0c);
+    }
+
+    .detail-number {
+      font-size: 35px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 5px;
+    }
+
+    .detail-label {
+      color: #777;
+      font-size: 12px;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .service {
+      min-height: 330px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(145deg,#131313,#0b0b0b);
+      transition: .35s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-8px);
+      border-color: #444;
+    }
+
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      color: #555;
+      font-size: 12px;
+    }
+
+    .service-icon {
+      font-size: 25px;
+      color: #aaa;
+    }
+
+    .service h3 {
+      font-size: 27px;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* =========================
+       WORK
+    ========================= */
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .project {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: #111;
+      transition: .35s ease;
+    }
+
+    .project:nth-child(1),
+    .project:nth-child(4) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(2),
+    .project:nth-child(3) {
+      grid-column: span 5;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,.12), transparent 30%),
+        linear-gradient(135deg,#181818,#090909);
+      transition: .5s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+    }
+
+    .project:hover::before {
+      transform: scale(1.08);
+    }
+
+    .project-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .project-tag {
+      color: #777;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .project h3 {
+      font-size: clamp(28px,4vw,45px);
+      letter-spacing: -2px;
+      margin-top: 8px;
+    }
+
+    .project-arrow {
+      position: absolute;
+      z-index: 2;
+      top: 25px;
+      right: 25px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #444;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #aaa;
+      transition: .3s;
+    }
+
+    .project:hover .project-arrow {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    /* =========================
+       PROCESS
+    ========================= */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .process-item {
+      min-height: 250px;
+      padding: 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .process-number {
+      color: #555;
+      font-size: 12px;
+      margin-bottom: 70px;
+    }
+
+    .process-item h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .process-item p {
+      color: #777;
+      font-size: 13px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      text-align: center;
+      padding-bottom: 160px;
+    }
+
+    .contact .section-number {
+      margin-bottom: 25px;
+    }
+
+    .contact h2 {
+      font-size: clamp(52px, 9vw, 115px);
+      line-height: .88;
+      letter-spacing: -7px;
+    }
+
+    .contact h2 span {
+      color: #666;
+    }
+
+    .contact p {
+      max-width: 520px;
+      margin: 30px auto;
+      color: #777;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: #555;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+    }
+
+    .socials a:hover {
+      color: #fff;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .nav-links.open {
+        display: flex;
+        position: absolute;
+        top: 78px;
+        left: 20px;
+        right: 20px;
+        padding: 22px;
+        flex-direction: column;
+        align-items: flex-start;
+        background: #111;
+        border: 1px solid #292929;
+        border-radius: 15px;
+      }
+
+      .hero h1 {
+        letter-spacing: -5px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .project,
+      .project:nth-child(1),
+      .project:nth-child(2),
+      .project:nth-child(3),
+      .project:nth-child(4) {
+        grid-column: span 12;
+        min-height: 300px;
+      }
+
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .container {
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .hero {
+        min-height: 92vh;
+      }
+
+      .hero h1 {
+        font-size: clamp(55px, 17vw, 90px);
+        letter-spacing: -5px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 90px 0;
+      }
+
+      .section-title {
+        letter-spacing: -2.5px;
+      }
+
+      .about-copy {
+        font-size: 17px;
+      }
+
+      .about-details {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .contact h2 {
+        letter-spacing: -4px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header id="header">
+    <div class="container nav">
+
+      <a href="#" class="brand">
+        DEAR<span>ANIL</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#process">Process</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+
+      <button class="menu" id="menuButton" aria-label="Open menu">
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Creative Designer · Digital Creator
+          </div>
+
+          <h1>
+            Ideas<br>
+            <span class="outline">into</span><br>
+            Impact.
+          </h1>
+
+          <p class="hero-description">
+            I'm Anil — a creative designer and digital creator
+            building visual identities, digital experiences and
+            content that people remember.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-primary">
+              Explore My Work →
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              Let's Collaborate
+            </a>
+          </div>
+
+        </div>
+
+        <div class="scroll-note">
+          Scroll to explore ↓
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="section-number">01 — About</div>
+
+            <h2 class="section-title">
+              More than<br>
+              just design.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            Creative thinking, visual storytelling and purposeful
+            design — brought together to turn ideas into something
+            meaningful.
+          </p>
+
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-copy">
+
+            <p>
+              I believe <strong>great design starts with a great idea.</strong>
+              My work sits at the intersection of creativity,
+              communication and technology.
+            </p>
+
+            <p>
+              Whether it's a brand identity, social media campaign,
+              digital artwork or a new creative concept, I focus on
+              making every visual clear, memorable and intentional.
+            </p>
+
+            <p>
+              <strong>Dear Anil</strong> is my personal digital space —
+              a place to showcase the work, experiments and ideas
+              behind my creative journey.
+            </p>
+
+          </div>
+
+          <div class="about-details">
+
+            <div class="detail">
+              <div class="detail-number">01</div>
+              <div class="detail-label">Creative Direction</div>
+            </div>
+
+            <div class="detail">
+              <div class="detail-number">02</div>
+              <div class="detail-label">Graphic Design</div>
+            </div>
+
+            <div class="detail">
+              <div class="detail-number">03</div>
+              <div class="detail-label">Brand Identity</div>
+            </div>
+
+            <div class="detail">
+              <div class="detail-number">04</div>
+              <div class="detail-label">Digital Content</div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="section-number">02 — Services</div>
+
+            <h2 class="section-title">
+              What I<br>
+              create.
+            </h2>
+          </div>
+
+        </div>
+
+        <div class="services">
+
+          <article class="service">
+
+            <div class="service-top">
+              <span>01</span>
+              <span class="service-icon">✦</span>
+            </div>
+
+            <div>
+              <h3>Graphic Design</h3>
+              <p>
+                Posters, advertisements, social media creatives,
+                promotional graphics and visual campaigns.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="service">
+
+            <div class="service-top">
+              <span>02</span>
+              <span class="service-icon">◈</span>
+            </div>
+
+            <div>
+              <h3>Brand Identity</h3>
+              <p>
+                Logos, visual systems and brand assets that create
+                a strong and recognizable identity.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="service">
+
+            <div class="service-top">
+              <span>03</span>
+              <span class="service-icon">↗</span>
+            </div>
+
+            <div>
+              <h3>Digital Content</h3>
+              <p>
+                Creative concepts, digital campaigns and engaging
+                content designed for modern audiences.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- WORK -->
+
+    <section id="work">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="section-number">03 — Selected Work</div>
+
+            <h2 class="section-title">
+              Selected<br>
+              creations.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            A preview of the creative direction this portfolio will
+            eventually showcase.
+          </p>
+
+        </div>
+
+        <div class="work-grid">
+
+          <article class="project">
+
+            <div class="project-arrow">↗</div>
+
+            <div class="project-content">
+              <div class="project-tag">Brand Identity</div>
+              <h3>Building Brands</h3>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-arrow">↗</div>
+
+            <div class="project-content">
+              <div class="project-tag">Social Media</div>
+              <h3>Digital Campaigns</h3>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-arrow">↗</div>
+
+            <div class="project-content">
+              <div class="project-tag">Creative</div>
+              <h3>Visual Stories</h3>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-arrow">↗</div>
+
+            <div class="project-content">
+              <div class="project-tag">Art Direction</div>
+              <h3>Ideas In Motion</h3>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+
+    <section id="process">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="section-number">04 — Process</div>
+
+            <h2 class="section-title">
+              From idea<br>
+              to reality.
+            </h2>
+          </div>
+
+        </div>
+
+        <div class="process">
+
+          <div class="process-item">
+            <div class="process-number">01</div>
+            <h3>Discover</h3>
+            <p>
+              Understand the idea, audience, goals and creative
+              direction.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">02</div>
+            <h3>Explore</h3>
+            <p>
+              Research, brainstorm and develop the strongest visual
+              possibilities.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">03</div>
+            <h3>Create</h3>
+            <p>
+              Turn the selected direction into polished visual
+              communication.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">04</div>
+            <h3>Deliver</h3>
+            <p>
+              Refine every detail and deliver work ready for the
+              real world.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="contact">
+
+      <div class="container">
+
+        <div class="section-number">05 — Contact</div>
+
+        <h2>
+          Let's make<br>
+          <span>something great.</span>
+        </h2>
+
+        <p>
+          Have an idea, project or collaboration in mind?
+          Let's turn it into something people remember.
+        </p>
+
+        <a href="mailto:hello@dearanil.com.np" class="btn btn-primary">
+          Start a Conversation →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 Dear Anil. All rights reserved.
+      </div>
+
+      <div class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    // Header background on scroll
+
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+
+    // Mobile navigation
+
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+
+    // Close mobile menu after clicking a link
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+
+  </script>
+
+</body>
+</html>
